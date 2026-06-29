@@ -32,3 +32,5 @@ build/
 .claude/
 .gemini/
 .agents/
+.vercel
+.env*

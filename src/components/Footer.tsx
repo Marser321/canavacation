@@ -21,9 +21,9 @@ export const Footer: React.FC = () => {
               className="inline-block"
             >
               <img 
-                src="/logo-cana-vacations.png" 
+                src="/brand/cana-vacations-logo-on-dark.png"
                 alt="Cana Vacations" 
-                className="h-16 w-auto object-contain hover:scale-102 transition-transform duration-300"
+                className="h-20 w-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:scale-102"
               />
             </a>
             <p className="text-sm font-light text-white/70 max-w-sm leading-relaxed">

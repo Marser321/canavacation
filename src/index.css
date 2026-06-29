@@ -36,3 +36,48 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.branded-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 171, 83, 0.65) rgba(255, 255, 255, 0.06);
+}
+
+.branded-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.branded-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}
+
+.branded-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 171, 83, 0.65);
+  border-radius: 999px;
+}
+
+.brand-date-input {
+  color-scheme: dark;
+  transition: border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
+}
+
+.brand-date-input:hover {
+  background-color: rgba(18, 32, 61, 0.9);
+  border-color: rgba(255, 171, 83, 0.6);
+}
+
+.brand-date-input:focus-visible {
+  box-shadow: 0 0 0 2px rgba(255, 171, 83, 0.28);
+}
+
+.brand-date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 0.2rem;
+  filter: invert(79%) sepia(78%) saturate(567%) hue-rotate(323deg) brightness(101%) contrast(101%);
+  opacity: 0.9;
+}
+
+.brand-date-input::-webkit-calendar-picker-indicator:hover {
+  background: rgba(255, 255, 255, 0.1);
+}

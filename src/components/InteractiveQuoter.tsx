@@ -4,6 +4,7 @@ import { products } from '../data/products';
 import { PICKUP_ZONES } from '../config';
 import { Calculator, HelpCircle, Sparkles } from 'lucide-react';
 import { calculateQuote, clampNumber, formatUSD, TRAVELER_LIMITS } from '../lib/quote';
+import { BrandedSelect } from './BrandedSelect';
 
 interface InteractiveQuoterProps {
   initialProductId?: string;
@@ -45,6 +46,14 @@ export const InteractiveQuoter: React.FC<InteractiveQuoterProps> = ({
   // Find selected tour data
   const selectedTour = products.find(p => p.id === selectedProductId) || products[0];
   const quote = calculateQuote(selectedTour, selectedPlan, { adults, children, infants }, selectedPickup, PICKUP_ZONES);
+  const tourOptions = products.map((p) => ({
+    value: p.id,
+    label: language === 'es' ? p.es.title : p.en.title
+  }));
+  const pickupOptions = PICKUP_ZONES.map((zone) => ({
+    value: zone.name,
+    label: `${zone.name} ${zone.surcharge > 0 ? `(+${formatUSD(zone.surcharge)}/pax)` : `(${t('quoter.free')})`}`
+  }));
 
   const handleBook = () => {
     onBookQuote({
@@ -92,18 +101,12 @@ export const InteractiveQuoter: React.FC<InteractiveQuoterProps> = ({
               <label htmlFor="quoter-tour" className="text-xs font-semibold text-white/80 uppercase tracking-wider block mb-2">
                 {t('quoter.labelTour')}
               </label>
-              <select
+              <BrandedSelect
                 id="quoter-tour"
                 value={selectedProductId}
-                onChange={(e) => setSelectedProductId(e.target.value)}
-                className="w-full bg-navy-deep/80 border border-white/10 rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-coral transition-colors cursor-pointer"
-              >
-                {products.map((p) => (
-                  <option key={p.id} value={p.id} className="bg-navy">
-                    {language === 'es' ? p.es.title : p.en.title}
-                  </option>
-                ))}
-              </select>
+                onChange={setSelectedProductId}
+                options={tourOptions}
+              />
             </div>
 
             {/* Plan Selection */}
@@ -210,18 +213,12 @@ export const InteractiveQuoter: React.FC<InteractiveQuoterProps> = ({
               <label htmlFor="quoter-pickup" className="text-xs font-semibold text-white/80 uppercase tracking-wider block mb-2">
                 {t('quoter.labelPickup')}
               </label>
-              <select
+              <BrandedSelect
                 id="quoter-pickup"
                 value={selectedPickup}
-                onChange={(e) => setSelectedPickup(e.target.value)}
-                className="w-full bg-navy-deep/80 border border-white/10 rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-coral transition-colors cursor-pointer"
-              >
-                {PICKUP_ZONES.map((zone) => (
-                  <option key={zone.name} value={zone.name} className="bg-navy">
-                    {zone.name} {zone.surcharge > 0 ? `(+${formatUSD(zone.surcharge)}/pax)` : `(${t('quoter.free')})`}
-                  </option>
-                ))}
-              </select>
+                onChange={setSelectedPickup}
+                options={pickupOptions}
+              />
             </div>
 
           </div>

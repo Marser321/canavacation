@@ -58,9 +58,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             className="flex items-center"
           >
             <img 
-              src="/logo-cana-vacations.png" 
+              src="/brand/cana-vacations-logo-on-dark.png"
               alt="Cana Vacations" 
-              className="h-12 w-auto object-contain hover:scale-105 transition-transform duration-300"
+              className="h-14 w-auto object-contain drop-shadow-[0_10px_18px_rgba(0,0,0,0.28)] transition-transform duration-300 hover:scale-105 sm:h-16"
             />
           </a>
 

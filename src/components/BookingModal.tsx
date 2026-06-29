@@ -4,6 +4,7 @@ import { CONFIG, PICKUP_ZONES } from '../config';
 import { products } from '../data/products';
 import { X, Calendar, ShieldAlert, ArrowRight, ArrowLeft, Check, Sparkles } from 'lucide-react';
 import { extractPaymentUrl, readWebhookResponse } from '../lib/ghl';
+import { BrandedSelect } from './BrandedSelect';
 import {
   calculateQuote,
   formatUSD,
@@ -106,6 +107,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const quote = calculateQuote(tour, selectedPlan, { adults, children, infants }, pickupZone, PICKUP_ZONES);
   const paymentAmounts = getPaymentAmounts(quote, paymentChoice);
   const minTourDate = getTodayDateInputValue();
+  const tourOptions = products.map((p) => ({
+    value: p.id,
+    label: language === 'es' ? p.es.title : p.en.title
+  }));
+  const planOptions = [
+    { value: 'classic', label: 'Classic' },
+    { value: 'vip', label: 'VIP' }
+  ];
+  const pickupOptions = PICKUP_ZONES.map((zone) => ({
+    value: zone.name,
+    label: `${zone.name} ${zone.surcharge > 0 ? `(+${formatUSD(zone.surcharge)}/pax)` : `(${t('quoter.free')})`}`
+  }));
 
   // Weekday Validation
   useEffect(() => {
@@ -370,33 +383,26 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       <label htmlFor="modal-tour-select" className="text-2xs font-semibold text-white/70 uppercase tracking-wide block mb-1">
                         {t('booking.tourLabel')}
                       </label>
-                      <select
+                      <BrandedSelect
                         id="modal-tour-select"
                         value={selectedTourId}
-                        onChange={(e) => setSelectedTourId(e.target.value)}
-                        className="w-full bg-navy-deep/80 border border-white/10 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-coral cursor-pointer"
-                      >
-                        {products.map((p) => (
-                          <option key={p.id} value={p.id} className="bg-navy">
-                            {language === 'es' ? p.es.title : p.en.title}
-                          </option>
-                        ))}
-                      </select>
+                        onChange={setSelectedTourId}
+                        options={tourOptions}
+                        size="sm"
+                      />
                     </div>
 
                     <div>
                       <label htmlFor="modal-plan-select" className="text-2xs font-semibold text-white/70 uppercase tracking-wide block mb-1">
                         {t('booking.planLabel')}
                       </label>
-                      <select
+                      <BrandedSelect
                         id="modal-plan-select"
                         value={selectedPlan}
-                        onChange={(e) => setSelectedPlan(e.target.value as 'classic' | 'vip')}
-                        className="w-full bg-navy-deep/80 border border-white/10 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-coral cursor-pointer"
-                      >
-                        <option value="classic" className="bg-navy">Classic</option>
-                        <option value="vip" className="bg-navy">VIP</option>
-                      </select>
+                        onChange={(nextPlan) => setSelectedPlan(nextPlan as 'classic' | 'vip')}
+                        options={planOptions}
+                        size="sm"
+                      />
                     </div>
                   </div>
 
@@ -508,7 +514,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       onChange={(e) => setDate(e.target.value)}
                       min={minTourDate}
                       required
-                      className={`bg-navy-deep/60 border rounded-xl px-4 py-3 text-xs text-white focus:outline-none cursor-pointer ${
+                      className={`brand-date-input bg-navy-deep/60 border rounded-xl px-4 py-3 text-xs text-white focus:outline-none cursor-pointer ${
                         dateError ? 'border-alert focus:border-alert' : 'border-white/10 focus:border-coral'
                       }`}
                     />
@@ -524,18 +530,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     <label htmlFor="booking-pickup-select" className="text-2xs font-semibold text-white/80 uppercase tracking-wide mb-1.5">
                       {t('booking.pickupZoneLabel')}
                     </label>
-                    <select
+                    <BrandedSelect
                       id="booking-pickup-select"
                       value={pickupZone}
-                      onChange={(e) => setPickupZone(e.target.value)}
-                      className="bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-coral cursor-pointer"
-                    >
-                      {PICKUP_ZONES.map((zone) => (
-                        <option key={zone.name} value={zone.name} className="bg-navy">
-                          {zone.name} {zone.surcharge > 0 ? `(+${formatUSD(zone.surcharge)}/pax)` : `(${t('quoter.free')})`}
-                        </option>
-                      ))}
-                    </select>
+                      onChange={setPickupZone}
+                      options={pickupOptions}
+                      size="sm"
+                    />
                   </div>
 
                   {/* Allergies / Health Conditions */}

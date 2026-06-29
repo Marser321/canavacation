@@ -139,9 +139,9 @@ export const Logistics: React.FC = () => {
           <div className="md:col-span-6 bg-gradient-to-r from-navy to-navy-deep border border-white/15 rounded-3xl p-8 shadow-xl mt-6 flex flex-col sm:flex-row items-center gap-6 justify-between">
             <div className="flex items-center gap-5">
               <img
-                src="/logo-cana-vacations.png"
+                src="/brand/cana-vacations-mark.png"
                 alt=""
-                className="w-16 h-16 rounded-full bg-white object-contain border-2 border-coral shadow-md"
+                className="w-16 h-16 rounded-2xl bg-navy-deep/80 object-contain p-1.5 border border-coral/50 shadow-glow-coral"
               />
               <div>
                 <span className="text-teal-bright font-bold uppercase tracking-wider text-xs flex items-center gap-1">
