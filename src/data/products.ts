@@ -46,12 +46,24 @@ export const products: Product[] = [
     id: 'saona',
     anchor: '#saona',
     durationHours: 7,
+    // IMAGE_AUDIT_MARKER (Classic Wide Banner):
+    // Prompt: A bright, high-resolution wide-angle photograph of a large white catamaran sailing on the turquoise waters of Bayahibe, Dominican Republic. The catamaran is filled with a group of happy, diverse tourists dancing and enjoying the sun. In the background, clear blue sky and a distant view of Isla Saona. Shot on DSLR, professional travel photography, highly detailed, vibrant tropical colors.
     classicImage: `${premiumPath}/saona-classic-wide.jpg`,
+    // IMAGE_AUDIT_MARKER (VIP Wide Banner):
+    // Prompt: A premium, high-resolution wide-angle photograph of a sleek, luxury private speed boat cruising fast through crystal-clear turquoise waters in Punta Cana. A small, select group of travelers is relaxing on the comfortable seats. The background features pristine white-sand beaches with leaning coconut palm trees and no crowds. Drone shot or low-angle action shot, professional travel advertising, cinematic lighting, 8k.
     vipImage: `${premiumPath}/saona-vip-wide.jpg`,
-    selectorImage: `${premiumPath}/saona-classic-wide.jpg`,
+    // IMAGE_AUDIT_MARKER (Selector/Thumbnail Image):
+    // Prompt: A wide cinematic photograph of a calm shallow natural pool near Isla Saona with a small family and local guide standing waist-deep in transparent turquoise water, palm-lined island in the distance, no boats as the main subject, premium Caribbean travel photography.
+    selectorImage: `${premiumPath}/saona-selector-wide.jpg`,
     galleryImages: [
+      // IMAGE_AUDIT_MARKER (Gallery Image 1 - Classic Story format):
+      // Prompt: A vertical 9:16 professional food photography shot of a traditional Dominican buffet lunch on a wooden beach table at Isla Saona. The plate features arroz con habichuelas (rice and beans), grilled chicken, fresh salad, and sliced tropical fruits (pineapple, mango). In the background, soft focus on the turquoise sea and leaning palm trees. Warm sun rays, appetizing look, high detail.
       `${premiumPath}/saona-classic-story.jpg`,
+      // IMAGE_AUDIT_MARKER (Gallery Image 2 - VIP Story format):
+      // Prompt: A vertical 9:16 breathtaking aerial drone photograph of three pristine, untouched beaches of Isla Saona (Canto de la Playa). Crystal-clear shallow waters showing different shades of turquoise and navy, white sand shore, and lush green coconut palms bordering the beach. No tourists, wild nature paradise, high-end travel magazine cover style, sharp details, sunny day.
       `${premiumPath}/saona-vip-story.jpg`,
+      // IMAGE_AUDIT_MARKER (Gallery Image 3 - VIP Square format):
+      // Prompt: A square 1:1 close-up shot of hands gently presenting a large, orange starfish underwater in the shallow, crystal-clear natural pool of Bayahibe. Sunlight reflections ripple on the water surface, creating a magical pattern. The starfish is fully submerged and intact. Professional underwater travel photography, crisp details, natural lighting.
       `${premiumPath}/saona-vip-square.jpg`
     ],
     pricing: {
@@ -146,12 +158,24 @@ export const products: Product[] = [
     id: 'buggy',
     anchor: '#buggy',
     durationHours: 4,
+    // IMAGE_AUDIT_MARKER (Classic Wide Banner):
+    // Prompt: A wide-angle, high-action photograph of a caravan of classic off-road buggies driving through a muddy trail in Punta Cana. Mud splashes from the wheels, and a diverse group of young tourists is laughing and driving. Surrounded by tropical vegetation and palm trees. Action photography, dynamic composition, bright daytime, high resolution.
     classicImage: `${premiumPath}/buggy-classic-wide.jpg`,
+    // IMAGE_AUDIT_MARKER (VIP Wide Banner):
+    // Prompt: A wide-angle, premium photograph of a modern, high-performance Polaris RZR off-road vehicle driving fast on a private dirt path. A couple is driving with professional helmets and safety gear. The environment is a clean, beautiful Dominican landscape. High-end adventure, crisp detail, sharp focus, professional marketing style.
     vipImage: `${premiumPath}/buggy-vip-wide.jpg`,
-    selectorImage: `${premiumPath}/buggy-classic-wide.jpg`,
+    // IMAGE_AUDIT_MARKER (Selector/Thumbnail Image):
+    // Prompt: A wide documentary-style photograph of travelers putting on helmets and bandanas beside parked off-road buggies at a rustic Dominican ranch checkpoint, cocoa pods, coffee plants, palm trees and a dusty trail in the background, energetic adventure travel photography.
+    selectorImage: `${premiumPath}/buggy-selector-wide.jpg`,
     galleryImages: [
+      // IMAGE_AUDIT_MARKER (Gallery Image 1 - Classic Story format):
+      // Prompt: A vertical 9:16 portrait of a smiling couple sitting inside an open-air buggy, their faces and clothes playfully covered in mud splashes, wearing sunglasses and bandanas. They are giving thumbs up. Behind them is a tropical jungle trail. Fun, adventurous vibe, professional portrait photography, vibrant colors.
       `${premiumPath}/buggy-classic-story.jpg`,
+      // IMAGE_AUDIT_MARKER (Gallery Image 2 - VIP Story format):
+      // Prompt: A vertical 9:16 photograph of a hidden freshwater cave cenote (Cueva del Agua) in Punta Cana. The water is deep crystal-clear blue, and a person is swimming peacefully. Light beams stream through an opening in the rocky cave ceiling, illuminating the water. Mystic, tropical oasis, high detail, professional travel photography.
       `${premiumPath}/buggy-vip-story.jpg`,
+      // IMAGE_AUDIT_MARKER (Gallery Image 3 - VIP Square format):
+      // Prompt: A square 1:1 landscape photograph of Macao Beach (Playa Macao), Dominican Republic. Golden sand, wild turquoise waves crashing on the shore, surfboards lined up, and coconut palm trees bending towards the ocean. High-detail, professional landscape photography, sunny day.
       `${premiumPath}/buggy-vip-square.jpg`
     ],
     pricing: {
@@ -246,12 +270,24 @@ export const products: Product[] = [
     id: 'party',
     anchor: '#party',
     durationHours: 3,
+    // IMAGE_AUDIT_MARKER (Classic Wide Banner):
+    // Prompt: A wide-angle photograph of a high-energy boat party on a double-deck catamaran in Punta Cana. A large group of diverse young people is dancing, laughing, raising tropical cocktails in plastic cups, led by a charismatic local animator. Sunny day, open ocean background, bright and fun party vibe, professional lifestyle photography.
     classicImage: `${premiumPath}/party-classic-wide.jpg`,
+    // IMAGE_AUDIT_MARKER (VIP Wide Banner):
+    // Prompt: A wide-angle, premium photograph of a luxury catamaran lounge area. A small group of friends is relaxing on comfortable white leather seats, sipping colorful premium cocktails in glass cups. Sophisticated, exclusive, and relaxed ambiance. Calm turquoise ocean in the background, elegant travel photography, 8k.
     vipImage: `${premiumPath}/party-vip-wide.jpg`,
-    selectorImage: `${premiumPath}/party-vip-wide.jpg`,
+    // IMAGE_AUDIT_MARKER (Selector/Thumbnail Image):
+    // Prompt: A wide vibrant photograph of friends standing in a shallow turquoise natural pool around a floating tropical fruit tray and colorful drinks, Punta Cana coastline and a catamaran secondary in the background, premium lifestyle travel photography.
+    selectorImage: `${premiumPath}/party-selector-wide.jpg`,
     galleryImages: [
+      // IMAGE_AUDIT_MARKER (Gallery Image 1 - Classic Story format):
+      // Prompt: A vertical 9:16 photograph of a floating bar in a shallow turquoise natural pool. The floating tray contains colorful tropical fruit platters (watermelon, pineapple, melon) and national drinks. People in swimwear are standing in the chest-deep crystal-clear water around it, smiling. Vibrant, sunny, professional travel shot.
       `${premiumPath}/party-classic-story.jpg`,
+      // IMAGE_AUDIT_MARKER (Gallery Image 2 - VIP Story format):
+      // Prompt: A vertical 9:16 underwater action photograph of a tourist snorkeling in a vibrant coral reef in Punta Cana. Crystal-clear water, colorful tropical fish swimming around, beautiful coral formations. The snorkeler is wearing a mask and fins. Natural light filtering through the water surface, crisp details.
       `${premiumPath}/party-vip-story.jpg`,
+      // IMAGE_AUDIT_MARKER (Gallery Image 3 - VIP Square format):
+      // Prompt: A square 1:1 close-up photograph of a premium tropical cocktail served in a freshly cut coconut, garnished with a slice of pineapple and a straw. It is held up with a soft-focus background of the calm turquoise ocean and sky. Professional commercial photography, refreshing, sharp details.
       `${premiumPath}/party-vip-square.jpg`
     ],
     pricing: {
@@ -346,12 +382,24 @@ export const products: Product[] = [
     id: 'santo-domingo',
     anchor: '#santo-domingo',
     durationHours: 9,
+    // IMAGE_AUDIT_MARKER (Classic Wide Banner):
+    // Prompt: A wide-angle photograph of the historic Colonial Zone of Santo Domingo, showing a large modern air-conditioned tour bus parked. A diverse group of tourists is walking towards the imposing historic Cathedral of Santa María la Menor. Historic architecture, cobblestone streets, sunny day, professional travel photography.
     classicImage: `${premiumPath}/santo-classic-wide.jpg`,
+    // IMAGE_AUDIT_MARKER (VIP Wide Banner):
+    // Prompt: A wide-angle, premium photograph of a private walking tour in the Colonial Zone of Santo Domingo. A professional tour guide is showing historical details to a couple on a quiet, narrow cobblestone street lined with colorful colonial-style houses and vibrant pink bougainvillea flowers. Intimate, cultural, professional photography.
     vipImage: `${premiumPath}/santo-vip-wide.jpg`,
-    selectorImage: `${premiumPath}/santo-classic-wide.jpg`,
+    // IMAGE_AUDIT_MARKER (Selector/Thumbnail Image):
+    // Prompt: A wide premium travel photograph of visitors entering Plaza de España near the Alcázar de Colón arches while a local guide points toward the historic landmark, warm colonial stone, blue sky, architecture as the hero, no vehicle focus.
+    selectorImage: `${premiumPath}/santo-selector-wide.jpg`,
     galleryImages: [
+      // IMAGE_AUDIT_MARKER (Gallery Image 1 - Classic Story format):
+      // Prompt: A vertical 9:16 photograph of the breathtaking underground lagoons at Los Tres Ojos National Park in Santo Domingo. Lush green tropical vegetation hangs down into a massive open limestone cave, framing a crystal-clear blue lake. Cinematic natural lighting, scenic, professional travel photo.
       `${premiumPath}/santo-classic-story.jpg`,
+      // IMAGE_AUDIT_MARKER (Gallery Image 2 - VIP Story format):
+      // Prompt: A vertical 9:16 professional food photography shot of a gourmet Dominican fusion dish (like a stylized mofongo with shrimp) served in the open-air courtyard of a luxury restaurant in the Colonial Zone. Elegant presentation, colonial architecture in the background with soft focus. Cinematic warm lighting.
       `${premiumPath}/santo-vip-story.jpg`,
+      // IMAGE_AUDIT_MARKER (Gallery Image 3 - VIP Square format):
+      // Prompt: A square 1:1 architectural photograph of the historic Alcázar de Colón in Santo Domingo. Focus on the majestic stone arches and columns, with the bright blue sky above. Sharp details, professional travel photography, historical landmark.
       `${premiumPath}/santo-vip-square.jpg`
     ],
     pricing: {
