@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ExperienceSelector } from './components/ExperienceSelector';
 import { TrustBar } from './components/TrustBar';
+import { VideoTestimonials } from './components/VideoTestimonials';
 import { ProductSection } from './components/ProductSection';
 import { InteractiveQuoter } from './components/InteractiveQuoter';
 import { OtherServices } from './components/OtherServices';
@@ -66,6 +67,9 @@ export const App: React.FC = () => {
 
       {/* Authority reviews */}
       <TrustBar />
+
+      {/* Video testimonials */}
+      <VideoTestimonials />
 
       {/* 4 Detail Product Sections */}
       <div className="space-y-0">
