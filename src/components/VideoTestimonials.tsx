@@ -106,17 +106,6 @@ export const VideoTestimonials: React.FC = () => {
               <p className="mt-5 text-xl font-semibold leading-relaxed text-white sm:text-2xl">
                 {t('videoTestimonials.quote')}
               </p>
-              <p className="mt-5 text-sm leading-relaxed text-white/68">
-                {t('videoTestimonials.context')}
-              </p>
-              <div className="mt-7 border-t border-white/10 pt-5">
-                <p className="text-sm font-bold uppercase tracking-wider text-teal-bright">
-                  {t('videoTestimonials.footerLabel')}
-                </p>
-                <p className="mt-2 text-sm text-white/70">
-                  {t('videoTestimonials.footerText')}
-                </p>
-              </div>
             </div>
           </div>
         </motion.div>

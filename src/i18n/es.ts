@@ -67,7 +67,7 @@ export const es = {
   videoTestimonials: {
     badge: "Testimonios reales",
     title: "Escucha a viajeros que ya vivieron Cana Vacations.",
-    subtitle: "Integramos testimonios en video para que puedas ver la experiencia con voz real de clientes, antes de elegir tu excursión.",
+    subtitle: "Conoce experiencias reales de clientes antes de elegir tu excursión.",
     highlights: [
       "Video corto y fácil de ver",
       "Clientes reales en destino",
@@ -78,9 +78,6 @@ export const es = {
     videoLabel: "Testimonio en video de clientes de Cana Vacations",
     videoFallback: "Tu navegador no puede reproducir este video.",
     quote: "Mira la experiencia real en destino: excursiones, coordinación y momentos que ayudan al cliente a decidir con confianza.",
-    context: "Este testimonio se reproduce directamente en la landing para que los visitantes no tengan que salir de la página antes de reservar o pedir información.",
-    footerLabel: "Prueba social visible",
-    footerText: "El video queda integrado al recorrido de compra junto con las reseñas, las garantías y los planes Classic/VIP."
   },
 
   // Product Section & Comparador
