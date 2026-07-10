@@ -236,67 +236,67 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         });
       }
 
-      if (CONFIG.ghlPaymentWebhookUrl) {
-        const response = await fetch(CONFIG.ghlPaymentWebhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            tag: 'checkout-payment-request',
-            status: 'payment_requested',
-            source: window.location.hostname,
-            contact: {
-              name,
-              email,
-              phone,
-              country
-            },
-            trip: {
-              productId: tour.id,
-              productTitle: language === 'es' ? tour.es.title : tour.en.title,
-              plan: selectedPlan,
-              date,
-              hotel,
-              pickupZone: quote.pickupZone,
-              roomNumber,
-              allergies
-            },
-            travelers: {
-              adults: quote.adults,
-              children: quote.children,
-              infants: quote.infants,
-              payingTravelers: quote.payingTravelers,
-              totalTravelers: quote.totalTravelers
-            },
-            quote: {
-              adultUnitPrice: quote.adultUnitPrice,
-              childUnitPrice: quote.childUnitPrice,
-              adultSubtotal: quote.adultSubtotal,
-              childSubtotal: quote.childSubtotal,
-              pickupSurchargePerTraveler: quote.pickupSurchargePerTraveler,
-              pickupSurcharge: quote.pickupSurcharge,
-              totalPrice: quote.totalPrice,
-              depositAmount: quote.depositAmount,
-              fullPaymentAmount: quote.fullPaymentAmount,
-              balanceAfterDeposit: quote.balanceAfterDeposit,
-              currency: 'USD'
-            },
-            payment: {
-              choice: paymentAmounts.choice,
-              amountDueNow: paymentAmounts.amountDueNow,
-              balanceDueAtDestination: paymentAmounts.balanceDueAtDestination,
-              requiresExactAmount: true
-            }
-          })
-        });
+      // Llamar a nuestro endpoint interno en lugar del webhook externo
+      const response = await fetch('/api/ghl/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          tag: 'checkout-payment-request',
+          status: 'payment_requested',
+          source: window.location.hostname,
+          contact: {
+            name,
+            email,
+            phone,
+            country
+          },
+          trip: {
+            productId: tour.id,
+            productTitle: language === 'es' ? tour.es.title : tour.en.title,
+            plan: selectedPlan,
+            date,
+            hotel,
+            pickupZone: quote.pickupZone,
+            roomNumber,
+            allergies
+          },
+          travelers: {
+            adults: quote.adults,
+            children: quote.children,
+            infants: quote.infants,
+            payingTravelers: quote.payingTravelers,
+            totalTravelers: quote.totalTravelers
+          },
+          quote: {
+            adultUnitPrice: quote.adultUnitPrice,
+            childUnitPrice: quote.childUnitPrice,
+            adultSubtotal: quote.adultSubtotal,
+            childSubtotal: quote.childSubtotal,
+            pickupSurchargePerTraveler: quote.pickupSurchargePerTraveler,
+            pickupSurcharge: quote.pickupSurcharge,
+            totalPrice: quote.totalPrice,
+            depositAmount: quote.depositAmount,
+            fullPaymentAmount: quote.fullPaymentAmount,
+            balanceAfterDeposit: quote.balanceAfterDeposit,
+            currency: 'USD'
+          },
+          payment: {
+            choice: paymentAmounts.choice,
+            amountDueNow: paymentAmounts.amountDueNow,
+            balanceDueAtDestination: paymentAmounts.balanceDueAtDestination,
+            requiresExactAmount: true
+          }
+        })
+      });
 
-        const responsePayload = await readWebhookResponse(response);
-        if (!response.ok) throw new Error('GHL payment workflow rejected the quote');
+      const responsePayload = await readWebhookResponse(response);
+      if (!response.ok) throw new Error('GHL payment workflow rejected the quote');
 
-        const paymentUrl = extractPaymentUrl(responsePayload);
-        if (paymentUrl) {
-          window.location.href = paymentUrl;
-          return;
-        }
+      // En la API V2 intentamos extraer la paymentUrl
+      const paymentUrl = extractPaymentUrl(responsePayload) || (responsePayload as any).paymentUrl;
+      if (paymentUrl) {
+        window.location.href = paymentUrl;
+        return;
       }
 
       setSuccessMode('paymentLink');
