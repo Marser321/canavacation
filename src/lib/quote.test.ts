@@ -26,20 +26,20 @@ const quote = calculateQuote(
   PICKUP_ZONES
 );
 
-assertEqual(quote.adultSubtotal, 170, 'adult subtotal uses adult unit price');
-assertEqual(quote.childSubtotal, 40, 'child subtotal uses child unit price');
+assertEqual(quote.adultSubtotal, 180, 'adult subtotal uses adult unit price');
+assertEqual(quote.childSubtotal, 42, 'child subtotal uses child unit price');
 assertEqual(quote.infantSubtotal, 0, 'infants remain free');
 assertEqual(quote.pickupSurcharge, 45, 'pickup surcharge applies only to paying travelers');
-assertEqual(quote.totalPrice, 255, 'total includes travelers and pickup surcharge');
-assertEqual(quote.depositAmount, 127.5, 'deposit is exactly 50 percent');
-assertEqual(quote.balanceAfterDeposit, 127.5, 'deposit balance is exactly 50 percent');
+assertEqual(quote.totalPrice, 267, 'total includes travelers and pickup surcharge');
+assertEqual(quote.depositAmount, 133.5, 'deposit is exactly 50 percent');
+assertEqual(quote.balanceAfterDeposit, 133.5, 'deposit balance is exactly 50 percent');
 
 const depositPayment = getPaymentAmounts(quote, 'deposit');
-assertEqual(depositPayment.amountDueNow, 127.5, 'deposit option pays 50 percent now');
-assertEqual(depositPayment.balanceDueAtDestination, 127.5, 'deposit option leaves 50 percent balance');
+assertEqual(depositPayment.amountDueNow, 133.5, 'deposit option pays 50 percent now');
+assertEqual(depositPayment.balanceDueAtDestination, 133.5, 'deposit option leaves 50 percent balance');
 
 const fullPayment = getPaymentAmounts(quote, 'full');
-assertEqual(fullPayment.amountDueNow, 255, 'full payment pays total now');
+assertEqual(fullPayment.amountDueNow, 267, 'full payment pays total now');
 assertEqual(fullPayment.balanceDueAtDestination, 0, 'full payment leaves no destination balance');
 
 const clamped = sanitizeTravelerCounts({ adults: -8, children: 99, infants: Number.NaN });

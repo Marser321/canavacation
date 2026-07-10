@@ -34,7 +34,7 @@ const buildItemDescription = (
   ];
   if (choice === 'deposit') {
     parts.push(
-      `Cronograma: 50% (US$${quote.depositAmount}) al reservar | 50% (US$${quote.balanceAfterDeposit}) vence el ${balanceDueDate} (pagable online o en destino)`
+      `Cronograma: 50% (US$${quote.depositAmount}) al reservar | 50% (US$${quote.balanceAfterDeposit}) vence el ${balanceDueDate} — idealmente en EFECTIVO en destino (también pagable online con este link)`
     );
   } else {
     parts.push('Pago total 100%');

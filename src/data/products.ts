@@ -68,15 +68,15 @@ export const products: Product[] = [
     ],
     pricing: {
       classic: {
-        adult: 85,
-        child: 40,
+        adult: 90,
+        child: 42,
         infant: 0
       },
       vip: {
-        adult: 120,
-        child: 60,
+        adult: 126,
+        child: 63,
         infant: 0,
-        comparableValue: 160
+        comparableValue: 168
       }
     },
     es: {
@@ -180,15 +180,15 @@ export const products: Product[] = [
     ],
     pricing: {
       classic: {
-        adult: 65,
-        child: 35,
+        adult: 69,
+        child: 37,
         infant: 0
       },
       vip: {
-        adult: 95,
-        child: 50,
+        adult: 100,
+        child: 53,
         infant: 0,
-        comparableValue: 130
+        comparableValue: 137
       }
     },
     es: {
@@ -292,15 +292,15 @@ export const products: Product[] = [
     ],
     pricing: {
       classic: {
-        adult: 65,
-        child: 35,
+        adult: 69,
+        child: 37,
         infant: 0
       },
       vip: {
-        adult: 90,
-        child: 50,
+        adult: 95,
+        child: 53,
         infant: 0,
-        comparableValue: 120
+        comparableValue: 126
       }
     },
     es: {
@@ -404,15 +404,15 @@ export const products: Product[] = [
     ],
     pricing: {
       classic: {
-        adult: 90,
-        child: 45,
+        adult: 95,
+        child: 48,
         infant: 0
       },
       vip: {
-        adult: 160,
-        child: 80,
+        adult: 168,
+        child: 84,
         infant: 0,
-        comparableValue: 210
+        comparableValue: 221
       }
     },
     es: {

@@ -140,7 +140,7 @@ export const en = {
     totalPrice: "Total Price",
     depositRequired: "Deposit option (50% today)",
     balanceAtDestination: "Balance if you choose deposit",
-    depositNote: "You can leave a 50% deposit or pay 100% now for the smoothest tour-day process.",
+    depositNote: "You can leave a 50% deposit (the balance is paid at destination, ideally in cash) or pay 100% now for the smoothest tour-day process.",
     ctaBookQuote: "Book This Quote",
     infoHelp: "Need a custom family package? Contact us on WhatsApp for a tailored quote.",
     paymentOptionDeposit: "Pay only 50% Deposit",
@@ -252,13 +252,13 @@ export const en = {
     excursionSubtotal: "Excursion subtotal",
     pickupSurcharge: "Pickup surcharge",
     paymentOptionLabel: "Select payment option",
-    payBalanceAtDestination: "Balance at destination",
+    payBalanceAtDestination: "Balance at destination (cash preferred)",
     expressCheckin: "Smoothest process",
     hotel: "Hotel",
     date: "Date",
     totalPrice: "Total Price",
     depositToPay: "Deposit Payment (50% today)",
-    balanceAtDest: "Remaining balance at destination",
+    balanceAtDest: "Remaining balance at destination (cash preferred)",
     fullPaymentLabel: "Full Payment (100% today)",
     fullPaymentPromo: "Pay 100% now and arrive with fewer steps, shorter lines, and a smoother tour-day experience.",
     paymentChoiceDeposit: "50% Deposit Today",
@@ -287,7 +287,7 @@ export const en = {
     terms: "Terms & Conditions",
     offices: "Offices: Punta Cana, DR · Charlotte, NC, USA",
     paymentTitle: "Secure payments",
-    paymentDesc: "Pay your secure online deposit with Stripe and the balance at destination."
+    paymentDesc: "Pay your secure online deposit with Stripe and the balance at destination, ideally in cash."
   },
   float: {
     whatsappTooltip: "Questions? Quick reply via WhatsApp"

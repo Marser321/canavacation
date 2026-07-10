@@ -140,7 +140,7 @@ export const es = {
     totalPrice: "Precio Total",
     depositRequired: "Opción de depósito (50% hoy)",
     balanceAtDestination: "Saldo si eliges depósito",
-    depositNote: "Puedes dejar un depósito del 50% o pagar el 100% para llegar con el proceso más fluido el día del tour.",
+    depositNote: "Puedes dejar un depósito del 50% (el saldo se paga en destino, idealmente en efectivo) o pagar el 100% para llegar con el proceso más fluido el día del tour.",
     ctaBookQuote: "Reservar esta Cotización",
     infoHelp: "¿Tienes dudas familiares? Escríbenos por WhatsApp y te cotizamos a medida.",
     paymentOptionDeposit: "Pagar solo Depósito del 50%",
@@ -252,13 +252,13 @@ export const es = {
     excursionSubtotal: "Subtotal excursión",
     pickupSurcharge: "Suplemento recogida",
     paymentOptionLabel: "Selecciona la opción de pago",
-    payBalanceAtDestination: "Balance en destino",
+    payBalanceAtDestination: "Saldo en destino (ideal en efectivo)",
     expressCheckin: "Proceso más fluido",
     hotel: "Hotel",
     date: "Fecha",
     totalPrice: "Precio Total",
     depositToPay: "Pago de Depósito (50% hoy)",
-    balanceAtDest: "Saldo a liquidar en destino",
+    balanceAtDest: "Saldo a liquidar en destino (idealmente en efectivo)",
     fullPaymentLabel: "Pago Total (100% hoy)",
     fullPaymentPromo: "Paga el 100% ahora y llega al tour con menos trámites, menos colas y una experiencia más cómoda.",
     paymentChoiceDeposit: "50% Depósito",
@@ -287,7 +287,7 @@ export const es = {
     terms: "Términos y Condiciones",
     offices: "Oficinas: Punta Cana, RD · Charlotte, Carolina del Norte, EE.UU.",
     paymentTitle: "Pagos seguros",
-    paymentDesc: "Paga tu depósito seguro online con Stripe y el balance en destino."
+    paymentDesc: "Paga tu depósito seguro online con Stripe y el saldo en destino, idealmente en efectivo."
   },
   float: {
     whatsappTooltip: "¿Dudas? Te respondemos rápido por WhatsApp"
