@@ -20,7 +20,12 @@ const ghlHeaders = (apiKey: string) => ({
   'Content-Type': 'application/json'
 });
 
-const buildItemDescription = (payload: any, quote: QuoteBreakdown, choice: PaymentChoice): string => {
+const buildItemDescription = (
+  payload: any,
+  quote: QuoteBreakdown,
+  choice: PaymentChoice,
+  balanceDueDate: string
+): string => {
   const parts = [
     `Fecha del tour: ${payload.trip?.date || 'a confirmar'}`,
     `Hotel: ${payload.trip?.hotel || '-'} (${quote.pickupZone})`,
@@ -28,7 +33,9 @@ const buildItemDescription = (payload: any, quote: QuoteBreakdown, choice: Payme
     `Total del tour: US$${quote.totalPrice}`
   ];
   if (choice === 'deposit') {
-    parts.push(`Depósito 50% — saldo de US$${quote.balanceAfterDeposit} se paga en destino`);
+    parts.push(
+      `Cronograma: 50% (US$${quote.depositAmount}) al reservar | 50% (US$${quote.balanceAfterDeposit}) vence el ${balanceDueDate} (pagable online o en destino)`
+    );
   } else {
     parts.push('Pago total 100%');
   }
@@ -116,9 +123,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(502).json({ success: false, message: 'Failed to retrieve contact ID' });
     }
 
-    // 2. Create Invoice in GHL (created as draft)
+    // 2. Create Invoice in GHL (created as draft).
+    // Deposit mode: ONE invoice for the FULL tour price with a 50/50 payment schedule —
+    // the customer pays the first installment now and the same link collects the balance
+    // (due on the tour date; GHL sends automatic reminders). If they pay the balance in
+    // cash at destination, staff records a manual payment against this same invoice.
     const issueDate = todayISODate();
-    const choiceLabel = choice === 'deposit' ? 'Depósito 50%' : 'Pago total';
+    const tourDate =
+      typeof payload.trip?.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(payload.trip.date)
+        ? payload.trip.date
+        : null;
+    const balanceDueDate = tourDate && tourDate > issueDate ? tourDate : issueDate;
+    const choiceLabel = choice === 'deposit' ? 'Depósito 50% + saldo programado' : 'Pago total';
     const invoiceRes = await fetch(`${GHL_BASE}/invoices/`, {
       method: 'POST',
       headers: ghlHeaders(GHL_API_KEY),
@@ -136,19 +152,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           phoneNo: contactPhone
         },
         issueDate,
-        dueDate: issueDate,
+        dueDate: choice === 'deposit' ? balanceDueDate : issueDate,
         sentTo: { email: [contactEmail] },
         discount: { type: 'percentage', value: 0 },
         items: [
           {
             name: `${productTitle} - Plan ${plan.toUpperCase()} (${choiceLabel})`,
-            description: buildItemDescription(payload, quote, choice),
+            description: buildItemDescription(payload, quote, choice, balanceDueDate),
             currency: 'USD',
-            amount: amountDueNow,
+            amount: quote.totalPrice,
             qty: 1,
             taxes: []
           }
-        ]
+        ],
+        ...(choice === 'deposit' && {
+          paymentSchedule: {
+            type: 'percentage',
+            schedules: [
+              { value: 50, dueDate: issueDate },
+              { value: 50, dueDate: balanceDueDate }
+            ]
+          }
+        })
       })
     });
 
