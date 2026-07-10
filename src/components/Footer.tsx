@@ -97,6 +97,19 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Agency Credit */}
+        <div className="mt-6 text-center text-2xs text-white/40">
+          {t('footer.credit')}{' '}
+          <a
+            href="https://admediasolution.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-white/60 hover:text-coral transition-colors"
+          >
+            AD Media Solution
+          </a>
+        </div>
+
       </div>
     </footer>
   );

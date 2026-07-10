@@ -287,7 +287,8 @@ export const en = {
     terms: "Terms & Conditions",
     offices: "Offices: Punta Cana, DR · Charlotte, NC, USA",
     paymentTitle: "Secure payments",
-    paymentDesc: "Pay your secure online deposit with Stripe and the balance at destination, ideally in cash."
+    paymentDesc: "Pay your secure online deposit with Stripe and the balance at destination, ideally in cash.",
+    credit: "Website designed & developed by"
   },
   float: {
     whatsappTooltip: "Questions? Quick reply via WhatsApp"

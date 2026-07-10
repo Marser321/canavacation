@@ -287,7 +287,8 @@ export const es = {
     terms: "Términos y Condiciones",
     offices: "Oficinas: Punta Cana, RD · Charlotte, Carolina del Norte, EE.UU.",
     paymentTitle: "Pagos seguros",
-    paymentDesc: "Paga tu depósito seguro online con Stripe y el saldo en destino, idealmente en efectivo."
+    paymentDesc: "Paga tu depósito seguro online con Stripe y el saldo en destino, idealmente en efectivo.",
+    credit: "Sitio diseñado y desarrollado por"
   },
   float: {
     whatsappTooltip: "¿Dudas? Te respondemos rápido por WhatsApp"
