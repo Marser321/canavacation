@@ -191,17 +191,14 @@ export const en = {
 
   // Lead Magnet
   lead: {
-    badge: "VIP Voucher 5% Off",
+    badge: "Free Travel Guide",
     title: "Traveling to Punta Cana soon?",
-    subtitle: "Get the 2026 Weather, Zones & Packing Guide and 5% off your first VIP tour.",
-    labelName: "Full name",
+    subtitle: "Would you like a free travel guide? Leave us your email and we'll send it to you right away.",
     labelEmail: "Email address",
-    labelDate: "Approximate travel dates",
-    placeholderName: "Your name",
     placeholderEmail: "you@email.com",
-    placeholderDate: "Nov 2026 / Nov 15-22",
-    cta: "Get the Guide + 5% Off",
-    success: "Guide sent! Check your inbox or spam folder. Your 5% discount code is: CANAVIP5."
+    cta: "Get My Free Guide",
+    successTitle: "Guide sent!",
+    successDescription: "Check your inbox or spam folder."
   },
 
   // FAQ

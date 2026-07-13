@@ -96,7 +96,7 @@ export const App: React.FC = () => {
       {/* Logistics & Policies */}
       <Logistics />
 
-      {/* Pre-trip newsletter discounts */}
+      {/* Free travel guide email signup */}
       <LeadMagnet />
 
       {/* Accordion FAQs */}

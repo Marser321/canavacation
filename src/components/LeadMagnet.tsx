@@ -5,15 +5,13 @@ import { MailCheck } from 'lucide-react';
 
 export const LeadMagnet: React.FC = () => {
   const { t } = useLanguage();
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [date, setDate] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email) return;
+    if (!email) return;
 
     setLoading(true);
 
@@ -24,9 +22,7 @@ export const LeadMagnet: React.FC = () => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            name,
             email,
-            approximateTravelDate: date,
             tag: 'lead-magnet',
             source: window.location.hostname
           })
@@ -66,10 +62,10 @@ export const LeadMagnet: React.FC = () => {
                 <MailCheck className="h-8 w-8" />
               </div>
               <h3 className="text-2xl sm:text-3xl font-bold font-sans">
-                {t('lead.success').split('.')[0]}.
+                {t('lead.successTitle')}
               </h3>
               <p className="mt-4 text-base text-white/80 max-w-xl font-light">
-                {t('lead.success').split('.').slice(1).join('.')}
+                {t('lead.successDescription')}
               </p>
             </div>
           ) : (
@@ -86,24 +82,7 @@ export const LeadMagnet: React.FC = () => {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {/* Name */}
-                <div className="flex flex-col">
-                  <label htmlFor="lead-name" className="text-xs font-semibold text-white/80 mb-2 uppercase tracking-wide">
-                    {t('lead.labelName')}
-                  </label>
-                  <input
-                    type="text"
-                    id="lead-name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                    placeholder={t('lead.placeholderName')}
-                    className="bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-coral transition-colors"
-                  />
-                </div>
-
-                {/* Email */}
+              <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-4">
                 <div className="flex flex-col">
                   <label htmlFor="lead-email" className="text-xs font-semibold text-white/80 mb-2 uppercase tracking-wide">
                     {t('lead.labelEmail')}
@@ -119,23 +98,7 @@ export const LeadMagnet: React.FC = () => {
                   />
                 </div>
 
-                {/* Travel Date */}
-                <div className="flex flex-col">
-                  <label htmlFor="lead-date" className="text-xs font-semibold text-white/80 mb-2 uppercase tracking-wide">
-                    {t('lead.labelDate')}
-                  </label>
-                  <input
-                    type="text"
-                    id="lead-date"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                    placeholder={t('lead.placeholderDate')}
-                    className="bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-coral transition-colors"
-                  />
-                </div>
-
-                {/* Submit button spans across on mobile, full width beneath */}
-                <div className="sm:col-span-3 mt-4">
+                <div className="pt-2">
                   <button
                     type="submit"
                     disabled={loading}
