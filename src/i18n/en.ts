@@ -193,12 +193,9 @@ export const en = {
   lead: {
     badge: "Free Travel Guide",
     title: "Traveling to Punta Cana soon?",
-    subtitle: "Would you like a free travel guide? Leave us your email and we'll send it to you right away.",
-    labelEmail: "Email address",
-    placeholderEmail: "you@email.com",
-    cta: "Get My Free Guide",
-    successTitle: "Guide sent!",
-    successDescription: "Check your inbox or spam folder."
+    subtitle: "Download our Dominican Republic travel guide for free. No forms or personal information required.",
+    cta: "Download My Free Guide",
+    fileNote: "PDF · 4 pages · Instant download"
   },
 
   // FAQ

@@ -193,12 +193,9 @@ export const es = {
   lead: {
     badge: "Guía turística gratuita",
     title: "¿Viajas pronto a Punta Cana?",
-    subtitle: "¿Te gustaría recibir una guía turística gratuita? Déjanos tu correo y te la enviaremos inmediatamente.",
-    labelEmail: "Correo electrónico",
-    placeholderEmail: "tu@email.com",
-    cta: "Recibir mi guía gratuita",
-    successTitle: "¡Guía enviada!",
-    successDescription: "Revisa tu bandeja de entrada o spam."
+    subtitle: "Descarga gratis nuestra guía de viajes de República Dominicana. Sin formularios ni datos personales.",
+    cta: "Descargar mi guía gratuita",
+    fileNote: "PDF · 4 páginas · Descarga inmediata"
   },
 
   // FAQ
