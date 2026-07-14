@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { CONFIG } from '../config';
 import { MailCheck } from 'lucide-react';
 
 export const LeadMagnet: React.FC = () => {
@@ -8,40 +7,36 @@ export const LeadMagnet: React.FC = () => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
     setLoading(true);
+    setSubmitError('');
 
     try {
-      // Post to GHL Webhook
-      if (CONFIG.ghlWebhookUrl) {
-        await fetch(CONFIG.ghlWebhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email,
-            tag: 'lead-magnet',
-            source: window.location.hostname
-          })
-        });
-      }
+      const response = await fetch('/api/ghl/lead-magnet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+
+      if (!response.ok) throw new Error('GHL guide request failed');
 
       // Google Analytics dataLayer push
       if (window.dataLayer) {
         window.dataLayer.push({
           event: 'submit_lead',
-          lead_type: 'weather_guide',
-          email_hashed: email // Hashing or clean tracking placeholder
+          lead_type: 'weather_guide'
         });
       }
 
       setSubmitted(true);
     } catch (err) {
-      console.error("GHL webhook submission failed, continuing locally...", err);
-      setSubmitted(true);
+      console.error('GHL guide request failed:', err);
+      setSubmitError('No pudimos enviar tu solicitud. Por favor, inténtalo nuevamente.');
     } finally {
       setLoading(false);
     }
@@ -107,6 +102,11 @@ export const LeadMagnet: React.FC = () => {
                     {loading ? "..." : t('lead.cta')}
                   </button>
                 </div>
+                {submitError && (
+                  <p className="text-sm text-coral text-center" role="alert">
+                    {submitError}
+                  </p>
+                )}
               </form>
             </div>
           )}
